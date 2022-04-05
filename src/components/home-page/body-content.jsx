@@ -2,7 +2,7 @@ export const BodyContent = () => {
     return <div className="home-body-content">
     <div className="body-content">
         <div className="body-header">
-            Manage your daily tasks with Pomodoro
+            Manage your daily tasks with avaay
         </div>
         <div className="body-description">
             avaay timwe is the easiest way to avoid procastinations and increase your productivity
