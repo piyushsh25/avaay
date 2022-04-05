@@ -15,13 +15,13 @@ export const HomeNavbar=()=>{
         <div>
             <ul class="text links">
                 <li class="items">  <NavLink style={isActiveHandler} to="/about-us" >
-                    About us
+                    Github
                 </NavLink></li>
                 <li class="items">   <NavLink style={isActiveHandler} to="/services">
-                    Services
+                    About-us
                 </NavLink></li>
                 <li class="items"> <NavLink style={isActiveHandler} to="/reviewsss">
-                    Reviews
+                    DarkMode
                 </NavLink></li>
             </ul>
       

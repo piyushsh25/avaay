@@ -8,7 +8,7 @@ export const BodyContent = () => {
             avaay timwe is the easiest way to avoid procastinations and increase your productivity
         </div>
 
-        <div class="button text"> Start now </div>
+        <div class="button text primary"> Start now </div>
 
         <div class="button text outline"> Explore </div>
 
