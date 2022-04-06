@@ -8,13 +8,13 @@ export const BodyContent = () => {
             avaay timwe is the easiest way to avoid procastinations and increase your productivity
         </div>
 
-        <div class="button text primary"> Start now </div>
+        <button class="button text primary"> Start now </button>
 
-        <div class="button text outline"> Explore </div>
+        <button class="button text outline"> Explore </button>
 
     </div>
     <div>
-        <img className="img-responsive" src={require("../../assets/5385957.jpg")} alt="time-runngin-out clock"/>
+        <img className="img-responsive" src={require("../../assets/home-page-clock.jpg")} alt="time-runngin-out clock"/>
     </div>
     </div>
 }

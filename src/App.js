@@ -1,6 +1,7 @@
 
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import { ErrorPage } from './pages/ErrorPage';
 import { LandingPage } from './pages/landing-page';
 
 function App() {
@@ -9,7 +10,7 @@ function App() {
     <div className="App">
       <Routes>
         <Route path="/" element={<LandingPage />} />
-        <Route path="*" element={<div className='h4'>No page found</div>} />
+        <Route path="*" element={<ErrorPage/>} />
       </Routes>
 
     </div>

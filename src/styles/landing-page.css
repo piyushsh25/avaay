@@ -42,6 +42,7 @@
 }
 .button.text.primary{
   color: white;
+  border-style: none;
 }
 
 @media only screen and (max-width: 640px) {
