@@ -6,7 +6,7 @@ const stateVariables = {
     name: "",
     description: "",
     time: "",
-    task:[] || JSON.parse(localStorage.getItem("taskItem")),
+    task: JSON.parse(localStorage.getItem("taskItem")) || [] ,
     showButton: false,
     formInValid: true,
 }
