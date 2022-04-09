@@ -11,8 +11,8 @@ function App() {
     <div className="App">
       <Routes>
         <Route path="/" element={<LandingPage />} />
-        <Route path="*" element={<ErrorPage/>} />
         <Route path='/dashboard' element={<DashBoard/>}/>
+        <Route path="*" element={<ErrorPage/>} />
       </Routes>
 
     </div>
