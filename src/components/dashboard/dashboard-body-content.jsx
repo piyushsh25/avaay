@@ -8,7 +8,7 @@ export const DashboardBody = () => {
 
     return <div className="dashboard-body">
         <InputForm />
-        {state.task.length === 0 ? <div className="empty-array">task empty? try adding some</div> :
+        {state.task?.length === 0 ? <div className="empty-array">task empty? try adding some</div> :
             state.task.map((item, index) => {
                 return <div className="card text-overlay-card no-desc" key={index}>
                     <div className="text-div">
