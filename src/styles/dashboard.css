@@ -1,0 +1,62 @@
+@import url("https://engin-ui.netlify.app/components/style.css");
+.dashboard-body {
+  background-color: #00ffff;
+  border-radius: 4rem 4rem 0 0;
+  height: 100vh;
+}
+.input-icon .input {
+  width: 30%;
+}
+.task-list-items {
+  margin: 1rem 0;
+  height: auto;
+}
+.button.icon {
+  border: 0;
+  margin-top: 1.5rem;
+  padding: 0;
+}
+.card {
+  box-shadow: 1px 1px 5px;
+  margin-top: 0;
+  background-color: rgba(255, 255, 255, 0.79);
+}
+.card.text-overlay-card.no-desc {
+  display: inline-flex;
+  flex-wrap: wrap;
+
+  margin-left: 2rem;
+}
+.card .text-div .card-icons.text-icon:nth-child(2) {
+  width: auto;
+  border-radius: 4px;
+}
+.card.text-overlay-card.no-desc .text-div .header-top {
+  position: unset;
+  bottom: 0;
+}
+.card.text-overlay-card.no-desc .text-div .header-bottom {
+  position: unset;
+}
+.text-div .description {
+  margin: 1rem 0;
+}
+.input-icon .button {
+  margin-top: 0;
+  border-style: none;
+}
+.input-icon .input {
+  margin: 4px;
+  padding: 8px;
+}
+.empty-array{
+  display: flex;
+  justify-content: center;
+  font-size: 2rem;
+}
+.description{
+  word-break: break-all;
+}
+.card .text-div .card-icons.text-icon:nth-child(2) {
+width: 5rem;
+}

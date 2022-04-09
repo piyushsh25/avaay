@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 export const BodyContent = () => {
     return <div className="home-body-content">
     <div className="body-content">
@@ -8,9 +10,9 @@ export const BodyContent = () => {
             avaay timwe is the easiest way to avoid procastinations and increase your productivity
         </div>
 
-        <button class="button text primary"> Start now </button>
+        <Link className="link-items" to="/dashboard"> <button className="button text primary">Start now </button></Link> 
 
-        <button class="button text outline"> Explore </button>
+        <button className="button text outline"> Explore </button>
 
     </div>
     <div>
