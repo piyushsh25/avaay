@@ -1,12 +1,13 @@
  
 import { useTaskItems } from "../../hooks/TaskContext"
 import "../../styles/dashboard.css"
+
 import { InputForm } from "./InputForm";
 
 export const DashboardBody = () => {
     const { state, dispatch } = useTaskItems();
 
-    return <div className="dashboard-body">
+    return <div className= {`dashboard-body ${state.darkMode?"darkMode":""}`}>
         <InputForm />
         {state.task.length === 0 ? <div className="empty-array">task empty? try adding some</div> :
             state.task.map((item, index) => {
