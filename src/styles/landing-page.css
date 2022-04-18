@@ -30,6 +30,7 @@
   position: relative;
   display: grid;
   grid-template-columns: 5fr 4fr;
+  height: 100vh;
 }
 
 .button {
@@ -41,8 +42,31 @@
   margin-right: 3rem;
 }
 .button.text.primary{
-  color: white;
+  color: rgb(255, 255, 255);
   border-style: none;
+
+}
+.link-items{
+  text-decoration: none;
+}
+.lni.lni-bulb,.fas.fa-lightbulb{
+ font-size: 4rem;
+ position: relative;
+ z-index: 99;
+ cursor: pointer;
+}
+.text.links.darkMode{
+background-color: #000000;
+color: #ffffff;
+}
+.text.links.darkMode .items a{
+  color: #ffffff;
+}
+.text.links .items a{
+  color: #000000;
+}
+.link-items.dark .text {
+  color: #ffffff;
 }
 
 @media only screen and (max-width: 640px) {
