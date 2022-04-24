@@ -21,7 +21,7 @@ export function reducerFunction(state, action) {
             const selectedItem = state.task.filter((task) => {
                 return action.payload !== task
             })
-            return {...state,showButton:true,name:payload.name,description:payload.description,time:payload.time,task:selectedItem}
+            return {...state,showButton:true,name:payload.name,description:payload.description,time:payload.time,task:selectedItem,numberOfCycles:payload.numberOfCycles}
         case "deleteTask":
             const itemToDelete = state.task.filter((task) => {
                 return action.payload.id !== task.id
