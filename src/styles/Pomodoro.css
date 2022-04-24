@@ -1,24 +1,35 @@
 .header-description {
   font-size: 1.5rem;
 }
-.card.text-overlay-card.no-desc {
-  width: auto;
+.pomodoro-body .text-div {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 4rem;
+}
+.pomodoro-body .card.text-overlay-card.no-desc {
+  width: 80vw;
   height: auto;
+  margin: 0;
   border-radius: 4px;
-  position: relative;
   margin: 20px;
+  padding: 2rem;
+  text-align: left;
 }
 .pomodoro-body {
   background-color: rgb(34, 121, 150);
   height: auto;
+  margin: 0;
   min-height: 100vh;
-  justify-content: center;
+  position: relative;
+  text-align: center;
+}
+.pomodoro-body .header-bottom {
   text-align: center;
 }
 .darkMode {
   background-color: black;
 }
-.darkMode .card.text-overlay-card.no-desc{
+.darkMode .card.text-overlay-card.no-desc {
   color: black;
 }
 .toast.lg {
@@ -44,4 +55,19 @@
 }
 .cycle-count:nth-child(2) {
   color: rgb(19, 143, 6);
+}
+.header-description {
+  font-weight: bolder;
+  color: rgb(61, 160, 18);
+}
+.card.text-overlay-card.no-desc .text-div .header-top {
+  color: rgb(38, 93, 211);
+}
+.h4.header-top {
+  color: rgb(68, 53, 124);
+}
+@media only screen and (max-width: 840px) {
+  .pomodoro-body .text-div {
+    display: unset;
+  }
 }

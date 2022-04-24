@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { useTaskItems } from "../../hooks/TaskContext";
 import "../../styles/Pomodoro.css"
 var timer;
-export const PomodoroBody = () => { 
+export const PomodoroBody = () => {
     //receive task via link
     const location = useLocation()
     const item = location.state;
@@ -60,7 +60,7 @@ export const PomodoroBody = () => {
         dispatch({ type: "archiveTask", payload: item })
         navigate("/dashboard")
     }
-document.title="avaay || "+displayTimeInMinutes +":" +displayTimeInSeconds
+    document.title = "avaay || " + displayTimeInMinutes + ":" + displayTimeInSeconds
     useEffect(() => {
         if (inputTime === 0) {
             clearInterval(timer)
@@ -70,21 +70,22 @@ document.title="avaay || "+displayTimeInMinutes +":" +displayTimeInSeconds
             setTimeout(() => {
                 setCompleteNotification(false)
             }, 5000);
-            
+
         }
 
     }, [inputTime])
     return <div className={`pomodoro-body ${state.darkMode ? "darkMode" : ""}`}>
         <div className="card text-overlay-card no-desc">
             <div className="text-div">
-                <div className="h4 header-top">{name}</div>
-                <div className="header-description">{description}</div>
-                {completeNotification && <div className="toast-container">
-                    <div className="toast success lg">
-                        yayy!!  cycle {cycleCount}  completed
-                    </div>
-                </div>}
-
+                <div>
+                    <div className="header-description">{name}</div>
+                    <div className="header-top">{description}</div>
+                    {completeNotification && <div className="toast-container">
+                        <div className="toast success lg">
+                            yayy!!  cycle {cycleCount}  completed
+                        </div>
+                    </div>}
+                </div>
                 <div>
                     <div className="header-bottom h3">{!cycleOver ? displayTimeInMinutes + ":" + displayTimeInSeconds : "Pomodoro Complete. :)"}</div>
                     {!cycleOver ? <ul>
@@ -97,11 +98,12 @@ document.title="avaay || "+displayTimeInMinutes +":" +displayTimeInSeconds
                             <button className="button error" onClick={() => completeDeleteHandler()}>Delete</button>
                             <button className="button outline" onClick={() => archiveHandler()}>Archive</button>
                         </ul>}
-                </div>
-                <div>
+                        <div>
                     <div className="cycle-count">total cycle:{numberOfCycles}</div>
                     <div className="cycle-count"> cycles completed:{cycleCount}</div>
                 </div>
+                </div>
+              
 
             </div>
 
