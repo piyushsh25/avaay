@@ -1,0 +1,47 @@
+.header-description {
+  font-size: 1.5rem;
+}
+.card.text-overlay-card.no-desc {
+  width: auto;
+  height: auto;
+  border-radius: 4px;
+  position: relative;
+  margin: 20px;
+}
+.pomodoro-body {
+  background-color: rgb(34, 121, 150);
+  height: auto;
+  min-height: 100vh;
+  justify-content: center;
+  text-align: center;
+}
+.darkMode {
+  background-color: black;
+}
+.darkMode .card.text-overlay-card.no-desc{
+  color: black;
+}
+.toast.lg {
+  position: absolute;
+  border-radius: 8px;
+  padding: 0;
+  top: 0;
+  height: 2.5rem;
+  margin: 0;
+  animation-fill-mode: both;
+  animation: 1s fadeIn;
+  left: 0;
+  border-radius: 0;
+  width: 15rem;
+}
+.cycle-count {
+  margin-top: 8px;
+  font-size: 2rem;
+  display: flex;
+}
+.cycle-count:nth-child(1) {
+  color: rgb(255, 17, 17);
+}
+.cycle-count:nth-child(2) {
+  color: rgb(19, 143, 6);
+}

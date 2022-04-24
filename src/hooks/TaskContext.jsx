@@ -9,6 +9,7 @@ const stateVariables = {
     task: JSON.parse(localStorage.getItem("taskItem")) || [] ,
     showButton: false,
     formInValid: true,
+    numberOfCycles:"",
     darkMode:false
 }
 export const TaskProvider = ({ children }) => {

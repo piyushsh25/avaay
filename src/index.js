@@ -9,7 +9,8 @@ ReactDOM.render(
   <React.StrictMode>
     <Router>
       <TaskProvider>
-        <App />
+       
+          <App />
       </TaskProvider>
     </Router>
   </React.StrictMode>,
