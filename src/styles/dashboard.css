@@ -68,8 +68,11 @@
 }
 .empty-array {
   display: flex;
+  height: 40vw;
   justify-content: center;
   font-size: 2rem;
+  align-items: center;
+  color: rgb(255, 255, 255);
 }
 .description {
   word-break: break-all;

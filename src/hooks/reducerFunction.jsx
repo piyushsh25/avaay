@@ -1,4 +1,3 @@
-import {  useNavigate } from 'react-router-dom'
 import uuid from 'react-uuid'
 export function reducerFunction(state, action) {
     const {payload}=action
@@ -24,11 +23,11 @@ export function reducerFunction(state, action) {
             })
             return {...state,showButton:true,name:payload.name,description:payload.description,time:payload.time,task:selectedItem,numberOfCycles:payload.numberOfCycles}
         case "archiveTask":
-            const archivedTask = state.task.filter((task) => {
+            const pomodoroDelete = state.task.filter((task) => {
                 return action.payload.id !== task.id
             })
-
-            return {...state,archivedTask:[...state.archivedTask,{payload}],task:archivedTask}
+     
+            return {...state,archivedTask:[...state.archivedTask,{id:payload.id,name:payload.name,time:payload.time,numberOfCycles:payload.numberOfCycles,description:payload.description}],task:pomodoroDelete}
         case "deleteTask":
             const itemToDelete = state.task.filter((task) => {
                 return action.payload.id !== task.id

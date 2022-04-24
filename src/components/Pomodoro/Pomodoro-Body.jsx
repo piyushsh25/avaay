@@ -12,7 +12,6 @@ export const PomodoroBody = () => {
     const inputTimeInSeconds = time * 60;
 
 
-
     //state for different values
     const [inputTime, setInputTime] = useState(inputTimeInSeconds)
     const [cycleCount, setCycleCount] = useState(0)
