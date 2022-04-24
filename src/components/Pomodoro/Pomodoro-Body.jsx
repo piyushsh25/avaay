@@ -28,6 +28,7 @@ export const PomodoroBody = () => {
         if (cycleCount + 1 === numberOfCycles) {
             setCycleOver(true)
         }
+       
     }
     function stopTimerHandler() {
         clearInterval(timer)
@@ -58,7 +59,7 @@ export const PomodoroBody = () => {
     return <div className={`pomodoro-body ${state.darkMode ? "darkMode" : ""}`}>
         <div className="card text-overlay-card no-desc">
             <div className="text-div">
-                <div className="h4">{name}</div>
+                <div className="h4 header-top">{name}</div>
                 <div className="header-description">{description}</div>
                 {completeNotification && <div className="toast-container">
                     <div className="toast success lg">
@@ -67,7 +68,7 @@ export const PomodoroBody = () => {
                 </div>}
                 
                 <div>
-                    <div className="header-bottom h3"> {displayTimeInMinutes}: {displayTimeInSeconds}</div>
+                    <div className="header-bottom h3">{!cycleOver? displayTimeInMinutes +":"+ displayTimeInSeconds:"Pomodoro Complete. :)"}</div>
                     {!cycleOver ? <ul>
                     <button className="button primary" onClick={startTimerHandler}>Start</button>
                     <button className="button error" onClick={stopTimerHandler}>pause</button>
