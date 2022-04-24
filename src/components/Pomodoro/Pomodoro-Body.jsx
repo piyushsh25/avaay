@@ -16,13 +16,13 @@ export const PomodoroBody = () => {
     const displayTimeInSeconds = inputTime % 60 < 10 ? `0${inputTime % 60}` : inputTime % 60
     const { state, dispatch } = useTaskItems();
 
-    function startTimerHandler() {
+    const startTimerHandler=()=> {
         clearInterval(timer)
         timer = setInterval(() => {
             setInputTime((time) => time - 1);
         }, 1000);
     }
-    function resetHandler() {
+    const resetHandler=()=> {
         clearInterval(timer)
         setInputTime(inputTimeInSeconds)
         if (cycleCount + 1 === numberOfCycles) {
@@ -30,11 +30,11 @@ export const PomodoroBody = () => {
         }
        
     }
-    function stopTimerHandler() {
+    const stopTimerHandler=()=> {
         clearInterval(timer)
         setInputTime(inputTime)
     }
-    function startOverHandler() {
+    const startOverHandler=()=> {
         clearInterval(timer)
         setCycleOver(false)
         setCycleCount(0)
