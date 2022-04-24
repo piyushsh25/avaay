@@ -60,6 +60,7 @@ export const PomodoroBody = () => {
         dispatch({ type: "archiveTask", payload: item })
         navigate("/dashboard")
     }
+document.title="avaay || "+displayTimeInMinutes +":" +displayTimeInSeconds
     useEffect(() => {
         if (inputTime === 0) {
             clearInterval(timer)
@@ -69,6 +70,7 @@ export const PomodoroBody = () => {
             setTimeout(() => {
                 setCompleteNotification(false)
             }, 5000);
+            
         }
 
     }, [inputTime])
