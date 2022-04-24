@@ -7,6 +7,7 @@ const stateVariables = {
     description: "",
     time: "",
     task: JSON.parse(localStorage.getItem("taskItem")) || [] ,
+    archivedTask:JSON.parse(localStorage.getItem("archivedTask")) || [],
     showButton: false,
     formInValid: true,
     numberOfCycles:"",
@@ -17,7 +18,8 @@ export const TaskProvider = ({ children }) => {
     const [state, dispatch] = useReducer(reducerFunction, stateVariables)
     useEffect(() => {
         localStorage.setItem("taskItem", JSON.stringify(state.task))
-    }, [state.task])
+        localStorage.setItem("archivedTask", JSON.stringify(state.archivedTask))
+    }, [state.task],[state.archivedTask])
 
 
     return <TaskContext.Provider value={{ state, dispatch }}>
