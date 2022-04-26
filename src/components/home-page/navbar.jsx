@@ -23,8 +23,8 @@ export const HomeNavbar = () => {
                     About-us
                 </NavLink></li>
                 <li className="items" onClick={()=>dispatch({type:"darkThemeHandler"})}>
-                    {state.darkMode ? <i class={"lni lni-bulb"}></i> :
-                    <i class="fas fa-lightbulb"></i>}
+                    {state.darkMode ? <i className={"lni lni-bulb"}></i> :
+                    <i className="fas fa-lightbulb"></i>}
                 </li>
 
             </ul>
