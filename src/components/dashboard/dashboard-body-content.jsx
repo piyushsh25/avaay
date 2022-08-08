@@ -7,7 +7,12 @@ import { InputForm } from "./InputForm";
 
 export const DashboardBody = () => {
     const { state, dispatch } = useTaskItems();
-
+    function editItemHandler(item) {
+        const selectedItem = state.task.filter((task) => {
+            return item !== task
+        })
+        dispatch({ type: "editTask", payload: {item,selectedItem} })
+    }
     return <div className={`dashboard-body ${state.darkMode ? "darkMode" : ""}`}>
         <InputForm />
         {state.task.length === 0 ? <div className="empty-array">task empty? try adding some</div> :
@@ -20,7 +25,7 @@ export const DashboardBody = () => {
                         <div className="description" >cycles:{item.numberOfCycles}</div>
                         <ul>
                             <li className="card-icons text-icon"> <Link to="/pomodoro" state={item}>Start</Link> </li>
-                            <li className="card-icons text-icon" onClick={() => dispatch({ type: "editTask", payload: item })}>Edit</li>
+                            <li className="card-icons text-icon" onClick={() => editItemHandler(item)}>Edit</li>
                             <li className="card-icons text-icon" onClick={() => dispatch({ type: "deleteTask", payload: item })}>Delete</li>
                         </ul>
                     </div>

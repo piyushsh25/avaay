@@ -135,7 +135,7 @@ describe("pomodoro reducers", () => {
         expect(state).toEqual(expectedState)
     })
     test("it should add the task to the task array", () => {
-        
+
         const stateVariables = {
             name: "defenceless- louis tomlinson",
             description: "Been up all night All night running all my lines But it’s only the truthBeen up all night",
@@ -157,7 +157,7 @@ describe("pomodoro reducers", () => {
             description: "",
             time: "",
             task: [{
-                id:uuid(),
+                id: uuid(),
                 name: "defenceless- louis tomlinson",
                 description: "Been up all night All night running all my lines But it’s only the truthBeen up all night",
                 time: 238,
@@ -169,7 +169,74 @@ describe("pomodoro reducers", () => {
             numberOfCycles: "",
             darkMode: false
         }
-        const state=reducerFunction(stateVariables,action)
+        const state = reducerFunction(stateVariables, action)
+        expect(state).toEqual(expectedState)
+    })
+    it("should edit the task", () => {
+        // item to edit
+        const item = {
+            id: uuid(),
+            name: "defenceless- louis tomlinson",
+            description: "Been up all night All night running all my lines But it’s only the truthBeen up all night",
+            time: 238,
+            numberOfCycles: 5,
+        }
+
+        const initialState = {
+            name: "",
+            description: "",
+            time: "",
+            task: [{
+                id: uuid(),
+                name: "defenceless- louis tomlinson",
+                description: "Been up all night All night running all my lines But it’s only the truthBeen up all night",
+                time: 238,
+                numberOfCycles: 5,
+            },
+            {
+                id: uuid(),
+                name: "defenceless- tomlinson",
+                description: "Been up all night All night running all my lines But it’s only the truthBeen up all night",
+                time: 2328,
+                numberOfCycles: 532,
+            }
+            ],
+            archivedTask: JSON.parse(localStorage.getItem("archivedTask")) || [],
+            showButton: false,
+            formInValid: true,
+            numberOfCycles: "",
+            darkMode: false
+        }
+        const action = {
+            type: "editTask",
+            payload: {
+                selectedItem: [{
+                    id: uuid(),
+                    name: "defenceless- tomlinson",
+                    description: "Been up all night All night running all my lines But it’s only the truthBeen up all night",
+                    time: 2328,
+                    numberOfCycles: 532,
+                }], item
+            }
+        }
+        const expectedState = {
+            name: "defenceless- louis tomlinson",
+            description: "Been up all night All night running all my lines But it’s only the truthBeen up all night",
+            time: 238,
+            task: [ {
+                id: uuid(),
+                name: "defenceless- tomlinson",
+                description: "Been up all night All night running all my lines But it’s only the truthBeen up all night",
+                time: 2328,
+                numberOfCycles: 532,
+            }],
+            archivedTask: JSON.parse(localStorage.getItem("archivedTask")) || [],
+            showButton: true,
+            formInValid: true,
+            numberOfCycles: 5,
+            darkMode: false
+        }
+        const state = reducerFunction(initialState, action)
         expect(state).toEqual(expectedState)
     })
 })
