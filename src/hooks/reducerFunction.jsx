@@ -18,8 +18,9 @@ export function reducerFunction(state, action) {
             const { name, description, time, numberOfCycles } = state;
             return { ...state, task: [...state.task, { id: uuid(), name: name, description: description, time: Number(time), numberOfCycles: Number(numberOfCycles) }], name: "", description: "", time: '', showButton: false, numberOfCycles: "" }
         case "editTask":
+            //task equals remainingItems[remaining items after deletion].
             return {
-                ...state, task: payload.selectedItem, showButton: true, name: payload.item.name, description: payload.item.description, time: payload.item.time, numberOfCycles: payload.item.numberOfCycles
+                ...state, task: payload.remainingItems, showButton: true, name: payload.item.name, description: payload.item.description, time: payload.item.time, numberOfCycles: payload.item.numberOfCycles
             }
         case "archiveTask":
             const pomodoroDelete = state.task.filter((task) => {

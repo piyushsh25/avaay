@@ -206,11 +206,11 @@ describe("pomodoro reducers", () => {
             numberOfCycles: "",
             darkMode: false
         }
-        // payload passes an object selectedItem and item, selectedItem is the filtered item after deleting the item to edit, and item is the pomodoro to edit.
+        // payload passes an object remainingItems and item, remainingItems is the filtered item after deleting the item to edit, and item is the pomodoro to edit.
         const action = {
             type: "editTask",
             payload: {
-                selectedItem: [{
+                remainingItems: [{
                     id: uuid(),
                     name: "defenceless- tomlinson",
                     description: "Been up all night All night running all my lines But it’s only the truthBeen up all night",
@@ -219,8 +219,9 @@ describe("pomodoro reducers", () => {
                 }], item
             }
         }
-        // here showbutton (showfrom) becomes true. and the task has the selectedItem[remaining items after deletion] only.
-        // name description, time, number of cycles get the value of the items to edit
+        // here showbutton (showfrom) becomes true
+        //the task has the remainingItems[remaining items after deletion] only.
+        // name, description, time, number of cycles get the value of the items to edit
         const expectedState = {
             name: "defenceless- louis tomlinson",
             description: "Been up all night All night running all my lines But it’s only the truthBeen up all night",
