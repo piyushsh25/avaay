@@ -1,12 +1,7 @@
-
-import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useTaskItems } from "../../hooks/TaskContext"
 import "../../styles/dashboard.css"
-
-import { useNavigate } from "react-router-dom";
 import { InputForm } from "./InputForm";
-
 export const DashboardBody = () => {
     const { state, dispatch } = useTaskItems();
     function editItemHandler(item) {
@@ -15,19 +10,11 @@ export const DashboardBody = () => {
         })
         dispatch({ type: "editTask", payload: { item, remainingItems } })
     }
-    useEffect(() => {
-        setInterval(() => {
-            console.log(state.archivedTask)
-        }, 10000)
-    })
-    const navigate = useNavigate()
-    const archiveHandler = (item) => {
+    const deleteTaskHandler = (item) => {
         const remainingItems = state.task.filter((task) => {
             return item.id !== task.id
         })
-        console.log(item)
-        dispatch({ type: "archiveTask", payload: { item, remainingItems } })
-        navigate("/dashboard")
+        dispatch({ type: "deleteTask", payload: remainingItems })
     }
     return <div className={`dashboard-body ${state.darkMode ? "darkMode" : ""}`}>
         <InputForm />
@@ -42,8 +29,7 @@ export const DashboardBody = () => {
                         <ul>
                             <li className="card-icons text-icon"> <Link to="/pomodoro" state={item}>Start</Link> </li>
                             <li className="card-icons text-icon" onClick={() => editItemHandler(item)}>Edit</li>
-                            <li className="card-icons text-icon" onClick={() => dispatch({ type: "deleteTask", payload: item })}>Delete</li>
-                            <button className="button outline" onClick={() => archiveHandler(item)}>Archive</button>
+                            <li className="card-icons text-icon" onClick={() => deleteTaskHandler(item)}>Delete</li>
                         </ul>
                     </div>
                 </div>

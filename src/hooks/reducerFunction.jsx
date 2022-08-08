@@ -25,10 +25,7 @@ export function reducerFunction(state, action) {
         case "archiveTask":
             return { ...state, archivedTask: [...state.archivedTask, payload.item], task: payload.remainingItems }
         case "deleteTask":
-            const itemToDelete = state.task.filter((task) => {
-                return action.payload.id !== task.id
-            })
-            return { ...state, task: itemToDelete }
+            return { ...state, task: payload }
         case "hideForm":
             return { ...state, showButton: false }
         default:

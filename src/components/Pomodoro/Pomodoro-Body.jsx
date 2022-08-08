@@ -52,9 +52,13 @@ export const PomodoroBody = () => {
         setCycleCount(0)
     }
     const navigate = useNavigate();
-    const completeDeleteHandler = () => {
+    const completeDeleteHandler = (item) => {
         navigate("/dashboard")
-        dispatch({ type: "deleteTask", payload: item })
+        const remainingItems = state.task.filter((task) => {
+            return item.id !== task.id
+        })
+
+        dispatch({ type: "deleteTask", payload: remainingItems })
     }
     const archiveHandler = (item) => {
         const remainingItems = state.task.filter((task) => {
@@ -97,7 +101,7 @@ export const PomodoroBody = () => {
                     </ul> :
                         <ul>
                             <button className="button primary" onClick={startOverHandler}>Start Over</button>
-                            <button className="button error" onClick={() => completeDeleteHandler()}>Delete</button>
+                            <button className="button error" onClick={() => completeDeleteHandler(item)}>Delete</button>
                             <button className="button outline" onClick={() => archiveHandler(item)}>Archive</button>
                         </ul>}
                     <div>

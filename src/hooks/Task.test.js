@@ -318,4 +318,61 @@ describe("pomodoro reducers", () => {
         }
         expect(state).toEqual(expectedState)
     })
+    it("should delete a pomodoro", () => {
+
+        const stateVariables = {
+            name: "",
+            description: "",
+            time: "",
+            task: [{
+                id: uuid(),
+                name: "defenceless- tomlinson",
+                description: "Been up all night All night running all my lines But it’s only the truthBeen up all night",
+                time: 2328,
+                numberOfCycles: 532,
+            }],
+            archivedTask: [],
+            showButton: false,
+            formInValid: true,
+            numberOfCycles: "",
+            darkMode: false
+        }
+        const remainingItems = []
+        const action = {
+            type: "deleteTask",
+            payload: remainingItems
+        }
+        const state = reducerFunction(stateVariables, action)
+        const expectedState = {
+            name: "",
+            description: "",
+            time: "",
+            task: [],
+            archivedTask: [],
+            showButton: false,
+            formInValid: true,
+            numberOfCycles: "",
+            darkMode: false
+        }
+        expect(state).toEqual(expectedState)
+    })
+    it("show/hide form", () => {
+        const action = {
+            type: "hideForm"
+        }
+        const state = reducerFunction(stateVariables, action)
+        const expectedState = {
+            name: "",
+            description: "",
+            time: "",
+            task: [],
+            archivedTask: [],
+            showButton: false,
+            formInValid: true,
+            numberOfCycles: "",
+            darkMode: false
+        }
+        expect(state).toEqual(expectedState)
+    })
+
 })
