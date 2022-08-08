@@ -8,10 +8,10 @@ import { InputForm } from "./InputForm";
 export const DashboardBody = () => {
     const { state, dispatch } = useTaskItems();
     function editItemHandler(item) {
-        const selectedItem = state.task.filter((task) => {
+        const remainingItems = state.task.filter((task) => {
             return item !== task
         })
-        dispatch({ type: "editTask", payload: {item,selectedItem} })
+        dispatch({ type: "editTask", payload: {item,remainingItems} })
     }
     return <div className={`dashboard-body ${state.darkMode ? "darkMode" : ""}`}>
         <InputForm />

@@ -19,6 +19,7 @@ export function reducerFunction(state, action) {
             return { ...state, task: [...state.task, { id: uuid(), name: name, description: description, time: Number(time), numberOfCycles: Number(numberOfCycles) }], name: "", description: "", time: '', showButton: false, numberOfCycles: "" }
         case "editTask":
             //task equals remainingItems[remaining items after deletion].
+            console.log(payload)
             return {
                 ...state, task: payload.remainingItems, showButton: true, name: payload.item.name, description: payload.item.description, time: payload.item.time, numberOfCycles: payload.item.numberOfCycles
             }
