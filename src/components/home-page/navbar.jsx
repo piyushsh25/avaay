@@ -19,8 +19,8 @@ export const HomeNavbar = () => {
                 <li className="items">  <NavLink style={isActiveHandler} to="/about-us" >
                     Github
                 </NavLink></li>
-                <li className="items">   <NavLink style={isActiveHandler} to="/services">
-                    About-us
+                <li className="items">   <NavLink style={isActiveHandler} to="/archived">
+                    Archived
                 </NavLink></li>
                 <li className="items" onClick={()=>dispatch({type:"darkThemeHandler"})}>
                     {state.darkMode ? <i className={"lni lni-bulb"}></i> :

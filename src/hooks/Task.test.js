@@ -226,7 +226,7 @@ describe("pomodoro reducers", () => {
             name: "defenceless- louis tomlinson",
             description: "Been up all night All night running all my lines But it’s only the truthBeen up all night",
             time: 238,
-            task: [ {
+            task: [{
                 id: uuid(),
                 name: "defenceless- tomlinson",
                 description: "Been up all night All night running all my lines But it’s only the truthBeen up all night",
@@ -240,6 +240,82 @@ describe("pomodoro reducers", () => {
             darkMode: false
         }
         const state = reducerFunction(initialState, action)
+        expect(state).toEqual(expectedState)
+    })
+    it("should archive an task", () => {
+
+        const stateVariables = {
+            name: "",
+            description: "",
+            time: "",
+            task: [
+                {
+                    id: uuid(),
+                    name: "defenceless- tomlinson",
+                    description: "Been up all night All night running all my lines But it’s only the truthBeen up all night",
+                    time: 2328,
+                    numberOfCycles: 532,
+                },
+                {
+                    id: uuid(),
+                    name: "os lab",
+                    description: "refactor code and test code",
+                    time: 60,
+                    numberOfCycles: 2,
+                }
+            ],
+            archivedTask: [],
+            showButton: false,
+            formInValid: true,
+            numberOfCycles: "",
+            darkMode: false
+        }
+        const item = {
+            id: uuid(),
+            name: "defenceless- tomlinson",
+            description: "Been up all night All night running all my lines But it’s only the truthBeen up all night",
+            time: 2328,
+            numberOfCycles: 532
+        }
+        const remainingItems = [{
+            id: uuid(),
+            name: "os lab",
+            description: "refactor code and test code",
+            time: 60,
+            numberOfCycles: 2,
+        }]
+        const action = {
+            type: "archiveTask",
+            payload: { item, remainingItems }
+        }
+        const state = reducerFunction(stateVariables, action)
+        const expectedState = {
+            name: "",
+            description: "",
+            time: "",
+            task: [
+                {
+                    id: uuid(),
+                    name: "os lab",
+                    description: "refactor code and test code",
+                    time: 60,
+                    numberOfCycles: 2,
+                }
+            ],
+            archivedTask: [
+                {
+                    id: uuid(),
+                    name: "defenceless- tomlinson",
+                    description: "Been up all night All night running all my lines But it’s only the truthBeen up all night",
+                    time: 2328,
+                    numberOfCycles: 532
+                }
+            ],
+            showButton: false,
+            formInValid: true,
+            numberOfCycles: "",
+            darkMode: false
+        }
         expect(state).toEqual(expectedState)
     })
 })

@@ -19,15 +19,11 @@ export function reducerFunction(state, action) {
             return { ...state, task: [...state.task, { id: uuid(), name: name, description: description, time: Number(time), numberOfCycles: Number(numberOfCycles) }], name: "", description: "", time: '', showButton: false, numberOfCycles: "" }
         case "editTask":
             //task equals remainingItems[remaining items after deletion].
-            console.log(payload)
             return {
                 ...state, task: payload.remainingItems, showButton: true, name: payload.item.name, description: payload.item.description, time: payload.item.time, numberOfCycles: payload.item.numberOfCycles
             }
         case "archiveTask":
-            const pomodoroDelete = state.task.filter((task) => {
-                return action.payload.id !== task.id
-            })
-            return { ...state, archivedTask: [...state.archivedTask, { id: payload.id, name: payload.name, time: payload.time, numberOfCycles: payload.numberOfCycles, description: payload.description }], task: pomodoroDelete }
+            return { ...state, archivedTask: [...state.archivedTask, payload.item], task: payload.remainingItems }
         case "deleteTask":
             const itemToDelete = state.task.filter((task) => {
                 return action.payload.id !== task.id
