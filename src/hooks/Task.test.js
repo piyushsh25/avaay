@@ -2,7 +2,6 @@ import { reducerFunction } from "./reducerFunction"
 import uuid from 'react-uuid';
 jest.mock('react-uuid');
 // testing the function in order the the action.type of reducer function
-
 // state variable for manipulation
 const stateVariables = {
     name: "",
@@ -207,6 +206,7 @@ describe("pomodoro reducers", () => {
             numberOfCycles: "",
             darkMode: false
         }
+        // payload passes an object selectedItem and item, selectedItem is the filtered item after deleting the item to edit, and item is the pomodoro to edit.
         const action = {
             type: "editTask",
             payload: {
@@ -219,6 +219,8 @@ describe("pomodoro reducers", () => {
                 }], item
             }
         }
+        // here showbutton (showfrom) becomes true. and the task has the selectedItem[remaining items after deletion] only.
+        // name description, time, number of cycles get the value of the items to edit
         const expectedState = {
             name: "defenceless- louis tomlinson",
             description: "Been up all night All night running all my lines But it’s only the truthBeen up all night",
