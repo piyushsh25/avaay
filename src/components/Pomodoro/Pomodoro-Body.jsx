@@ -52,12 +52,19 @@ export const PomodoroBody = () => {
         setCycleCount(0)
     }
     const navigate = useNavigate();
-    const completeDeleteHandler = () => {
+    const completeDeleteHandler = (item) => {
         navigate("/dashboard")
-        dispatch({ type: "deleteTask", payload: item })
+        const remainingItems = state.task.filter((task) => {
+            return item.id !== task.id
+        })
+
+        dispatch({ type: "deleteTask", payload: remainingItems })
     }
-    const archiveHandler = () => {
-        dispatch({ type: "archiveTask", payload: item })
+    const archiveHandler = (item) => {
+        const remainingItems = state.task.filter((task) => {
+            return item.id !== task.id
+        })
+        dispatch({ type: "archiveTask", payload: { item, remainingItems } })
         navigate("/dashboard")
     }
     document.title = "avaay || " + displayTimeInMinutes + ":" + displayTimeInSeconds
@@ -70,7 +77,6 @@ export const PomodoroBody = () => {
             setTimeout(() => {
                 setCompleteNotification(false)
             }, 5000);
-
         }
 
     }, [inputTime])
@@ -95,15 +101,15 @@ export const PomodoroBody = () => {
                     </ul> :
                         <ul>
                             <button className="button primary" onClick={startOverHandler}>Start Over</button>
-                            <button className="button error" onClick={() => completeDeleteHandler()}>Delete</button>
-                            <button className="button outline" onClick={() => archiveHandler()}>Archive</button>
+                            <button className="button error" onClick={() => completeDeleteHandler(item)}>Delete</button>
+                            <button className="button outline" onClick={() => archiveHandler(item)}>Archive</button>
                         </ul>}
-                        <div>
-                    <div className="cycle-count">total cycle:{numberOfCycles}</div>
-                    <div className="cycle-count"> cycles completed:{cycleCount}</div>
+                    <div>
+                        <div className="cycle-count">total cycle:{numberOfCycles}</div>
+                        <div className="cycle-count"> cycles completed:{cycleCount}</div>
+                    </div>
                 </div>
-                </div>
-              
+
 
             </div>
 
